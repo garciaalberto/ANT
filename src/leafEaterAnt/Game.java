@@ -1,6 +1,7 @@
 
 package leafEaterAnt;
 
+import java.awt.Color;
 import java.io.IOException;
 import javax.swing.*;
 
@@ -21,6 +22,10 @@ public class Game extends JFrame {
     public static void main(String[] args) throws IOException {
         Game leafEaterAnt = new Game();
         leafEaterAnt.setVisible(true);
+        
+        while(true){
+            leafEaterAnt.repaint();
+        }
     }
 
 }

@@ -33,7 +33,31 @@ public class Ant {
             case 3:
                 return "imgs/ant_w.png";
             default:
-                return "imgs/ant_n.png";
+                System.err.println("Something went wrong while the ant was trying change direction");
+                return "";
+        }
+    }
+    
+    public void changeDirection(int image){
+        this.image = image;
+    }
+    
+    public void move(){
+        switch(image){
+            case 0:
+                this.position[1] -= 1;
+                break;
+            case 1:
+                this.position[0] += 1;
+                break;
+            case 2:
+                this.position[1] += 1;
+                break;
+            case 3:
+                this.position[0] -= 1;
+                break;
+            default:
+                System.err.println("Something went wrong while the ant was trying to move");
         }
     }
 }
