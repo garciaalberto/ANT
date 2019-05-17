@@ -91,6 +91,9 @@ public class Map extends JPanel implements KeyListener{
         if(code == KeyEvent.VK_LEFT){
             ANT.changeDirection(3);
         }
+        if(code == KeyEvent.VK_SPACE){
+            ANT.move();
+        }
     }
 
     public void keyReleased(KeyEvent e) {

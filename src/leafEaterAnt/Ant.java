@@ -45,16 +45,16 @@ public class Ant {
     public void move(){
         switch(image){
             case 0:
-                this.position[1] -= 1;
+                this.position[0] -= 1;
                 break;
             case 1:
-                this.position[0] += 1;
-                break;
-            case 2:
                 this.position[1] += 1;
                 break;
+            case 2:
+                this.position[0] += 1;
+                break;
             case 3:
-                this.position[0] -= 1;
+                this.position[1] -= 1;
                 break;
             default:
                 System.err.println("Something went wrong while the ant was trying to move");
