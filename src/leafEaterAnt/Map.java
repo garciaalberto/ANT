@@ -20,7 +20,10 @@ public class Map extends JPanel implements KeyListener{
     private final BufferedImage LEAFIMAGE;
     private final BufferedImage NOTHINGIMAGE;
     private final Ant ANT;
-    private boolean[][] board = new boolean[20][20];
+    private final boolean[][] board = new boolean[20][20];
+    private boolean messageDisplayed = false;
+    boolean complete = true;
+
 
     public Map() throws IOException {
         this.LEAFIMAGE = ImageIO.read(new File("imgs/leaf.png"));
@@ -36,11 +39,10 @@ public class Map extends JPanel implements KeyListener{
         }
     }
     
-    
-    
     @Override
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+        complete = true;
         int yAxis = 0;
         for (int i = 0; i < DIMENSION; i++) {
             int xAxis = 0;
@@ -57,6 +59,7 @@ public class Map extends JPanel implements KeyListener{
                     }
                 }
                 else if(board[i][j] == true){
+                    complete = false;
                     g.drawImage(LEAFIMAGE,(int) xAxis, (int) yAxis, null);
                 }
                 else if(board[i][j] == false){
@@ -65,6 +68,13 @@ public class Map extends JPanel implements KeyListener{
                 xAxis += SIDE;
             }
             yAxis += SIDE;
+        }
+        if(complete && !messageDisplayed){
+            this.messageDisplayed = true;
+            JOptionPane.showMessageDialog(this,
+            "You did help the ant get enough leaves to survive the whole winter!",
+            "Congratulations!",
+            JOptionPane.PLAIN_MESSAGE);
         }
     }
 
